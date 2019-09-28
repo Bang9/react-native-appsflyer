@@ -1,7 +1,7 @@
 declare module "react-native-appsflyer" {
     type Response<T>    = void | Promise<T>;
-    type SuccessCB      = (result:any) => any;
-    type ErrorCB        = (errorC?:any) => any;
+    type SuccessCB      = (result?:any) => any;
+    type ErrorCB        = (error?:any) => any;
     type ConversionData = {
         status: "success" | "failure",
         type: "onAppOpenAttribution"
