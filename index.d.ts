@@ -1,5 +1,5 @@
 /**
- * Typescript Definition Sync with v5.1.1
+ * Typescript Definition Sync with v6.0.30
  **/
 declare module "react-native-appsflyer" {
     type Response<T>    = void | Promise<T>;
@@ -52,6 +52,7 @@ declare module "react-native-appsflyer" {
 
         initSdk(options: InitSDKOptions, successC?: SuccessCB, errorC?: ErrorCB): Response<string>
         logEvent(eventName: string, eventValues: object, successC?: SuccessCB, errorC?: ErrorCB): Response<string>
+        logLocation(longitude: number, latitude: number, callback: SuccessCB): void
         setUserEmails(options: SetEmailsOptions, successC: SuccessCB, errorC: ErrorCB): void
         setAdditionalData(additionalData: object, successC?: SuccessCB): void
         getAppsFlyerUID(callback: (error: Error, uid: string) => any): void
@@ -69,12 +70,11 @@ declare module "react-native-appsflyer" {
         setSharingFilterForAllPartners(): void
         setSharingFilter(partners, successC, errorC): void
         logLocation(longitude: number, latitude: number, successC?: SuccessCB): void
+        updateServerUninstallToken(token: string, successC?: SuccessCB): void
 
         /**
          * For iOS Only
          * */
-        trackAppLaunch(): void
-        trackLocation(longitude: number, latitude: number, callback: SuccessCB): void
         disableAdvertisingIdentifier(shouldDisable: boolean):void
         disableCollectASA(shouldDisable: boolean):void
 
@@ -83,7 +83,6 @@ declare module "react-native-appsflyer" {
          * */
         setCollectIMEI(isCollect: boolean, successC?: SuccessCB): void
         setCollectAndroidID(isCollect: boolean, successC?: SuccessCB): void
-        updateServerUninstallToken(token: string, successC?: SuccessCB): void
     };
 
     export default appsFlyer;
